@@ -21,14 +21,19 @@ function DeleteTaskForm({ task, closeDialog }: DeleteTaskFormProps) {
   const [isDeleting, setIsDeleting] = useState(false);
   const { deleteTask } = useTaskManager();
   const router = useRouter();
+
   const handleDelete = async () => {
     if (!task) return;
 
     try {
       setIsDeleting(true);
       await deleteTask(task.id);
-      closeDialog();
+
+      // Refresh the page
       router.refresh();
+
+      // Close dialog
+      closeDialog();
     } catch (error) {
       console.error("Error deleting task:", error);
     } finally {

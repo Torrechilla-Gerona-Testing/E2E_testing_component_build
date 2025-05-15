@@ -132,7 +132,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\LENOVO LOQ\\OneDrive\\Documents\\component design\\Componentactivity\\component_build\\Midterm folder\\to-do-list-app\\src\\generated\\prisma",
+      "value": "C:\\Users\\LENOVO LOQ\\OneDrive\\Documents\\testing\\lab 3\\E2E_testing_component_build\\Midterm folder\\to-do-list-app\\src\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -146,7 +146,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\LENOVO LOQ\\OneDrive\\Documents\\component design\\Componentactivity\\component_build\\Midterm folder\\to-do-list-app\\prisma\\schema.prisma",
+    "sourceFilePath": "C:\\Users\\LENOVO LOQ\\OneDrive\\Documents\\testing\\lab 3\\E2E_testing_component_build\\Midterm folder\\to-do-list-app\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {

@@ -25,6 +25,7 @@ import { SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { Task } from "@/generated/prisma";
 import { toast } from "sonner";
 import { useTaskManager } from "@/manager/TaskManager";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   title: z.string().min(1, "Title is required"),
@@ -39,13 +40,15 @@ interface EditTaskFormProps {
 }
 
 const EditTaskForm: React.FC<EditTaskFormProps> = ({ task, closeSheet }) => {
-  const { updateTask } = useTaskManager(); // Changed from editItem to updateTask
+  const { updateTask } = useTaskManager();
+  const router = useRouter();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       title: task?.title || "",
       description: task?.description || "",
+      type: task?.dueDate ? "timed" : "basic",
       dueDate: task?.dueDate
         ? new Date(task.dueDate).toISOString().slice(0, 16)
         : "",
@@ -60,11 +63,14 @@ const EditTaskForm: React.FC<EditTaskFormProps> = ({ task, closeSheet }) => {
         ...task,
         title: values.title,
         description: values.description ?? null,
-
         dueDate: values.dueDate ? new Date(values.dueDate) : null,
       };
 
-      await updateTask(updatedTask); // Use the correct function name
+      await updateTask(updatedTask);
+
+      // Refresh the page
+      router.refresh();
+
       toast.success("Task updated successfully!");
       closeSheet();
     } catch (error) {
