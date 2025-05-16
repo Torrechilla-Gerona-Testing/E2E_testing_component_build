@@ -101,7 +101,7 @@ const TaskSort: React.FC<SortProps> = ({ tasks, onSort }) => {
 
   return (
     <Select onValueChange={handleSort}>
-      <SelectTrigger className="min-w-[200px] bg-white">
+      <SelectTrigger className="min-w-[200px] bg-white" data-testid="sort-test">
         <SelectValue placeholder="Sort tasks by..." />
       </SelectTrigger>
       <SelectContent>

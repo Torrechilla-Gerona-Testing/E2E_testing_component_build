@@ -38,6 +38,7 @@ const TaskFactory = ({
         className={`${
           !task.description ? "h-full flex items-center justify-center" : ""
         }`}
+        data-testid="task-title"
       >
         {task.title}
       </h2>
@@ -60,12 +61,12 @@ const TaskFactory = ({
           )}
         </span>
         <div className="gap-2 items-end w-min flex flex-col lg:flex-row">
-          <button onClick={() => onUpdate(task)}>
+          <button onClick={() => onUpdate(task)} data-testid="edit-test">
             {" "}
             {/* Update handler */}
             <Pencil size={18} />
           </button>
-          <button onClick={() => onDelete(task)}>
+          <button onClick={() => onDelete(task)} data-testid="delete-test">
             {" "}
             {/* Update handler */}
             <Trash size={18} />

@@ -101,7 +101,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onSuccess }) => {
             <FormItem>
               <FormLabel>Title</FormLabel>
               <FormControl>
-                <Input {...field} />
+                <Input {...field} placeholder="Title"/>
               </FormControl>
               <FormMessage />
             </FormItem>
